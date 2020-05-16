@@ -1,7 +1,5 @@
 package sample.springshop.model;
 
-import org.springframework.boot.context.properties.ConstructorBinding;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -24,7 +22,6 @@ public class Users {
     private String userEmail;
 
     //get
-    @ConstructorBinding()
     public Users(int userId, String userName, String userPassword, String userEmail) {
         this.userId = userId;
         this.userName = userName;
@@ -39,8 +36,17 @@ public class Users {
         this.userEmail = userEmail;
     }
 
+    public Users(String userName, String userPassword) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+    }
+
+    //needed as default constructor
     public Users(){
-        super();
+    }
+
+    public int getUserId() {
+        return userId;
     }
 
     public String getUserName() {

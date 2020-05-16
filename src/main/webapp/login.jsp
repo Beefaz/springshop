@@ -5,15 +5,21 @@
   Time: 2:37 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-    <form action="getUser">
-        <input type="text" name="userId"><br>
-        <input type="submit"><br>
-    </form>
+    <title>Login</title>
 </head>
 <body>
+<form action="login/">
+    <Label for="username_field">Vartotojo vardas</Label><br>
+    <input type="text" id="username_field" name="userName"><br>
 
+    <Label for="password_field">Slaptažodis</Label><br>
+    <input type="text" id="password_field" name="userPassword"><br><br>
+
+    <input type="submit" id="login_button"><br>
+    <Label for="login_button"></Label><br>
+</form>
 </body>
 </html>
