@@ -8,50 +8,43 @@ public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "product_id")
-    int productId;
-    @Column (name = "user_id")
-    int userId;
-    @Column (name = "phone")
-    String phone;
-    @Column (name = "city")
-    String city;
+    private int productId;
     @Column (name = "product_name")
-    String productName;
+    private String productName;
     @Column (name = "product_price")
-    double productPrice;
+    private double productPrice;
     @Column (name = "product_category")
-    String productCategory;
+    private String productCategory;
     @Column (name = "delivery_method")
-    String deliveryMethod;
+    private String deliveryMethod;
     @Column (name = "advertisement_length")
-    int advertisementLength;
-    @Column (name = "advertisement_timestamp")
-    String advertisementTimestamp;
+    private int advertisementLength;
+    @Column (name = "phone")
+    private String phone;
+    @Column (name = "city")
+    private String city;
 
     //get
-    public Products(int productId, int userId, String phone, String city, String productName, double productPrice, String productCategory, String deliveryMethod, int advertisementLength, String advertisementTimestamp) {
+    public Products(int productId, String productName, double productPrice, String productCategory, String deliveryMethod, int advertisementLength, String phone, String city) {
         this.productId = productId;
-        this.userId = userId;
-        this.phone = phone;
-        this.city = city;
         this.productName = productName;
         this.productPrice = productPrice;
         this.productCategory = productCategory;
         this.deliveryMethod = deliveryMethod;
         this.advertisementLength = advertisementLength;
-        this.advertisementTimestamp = advertisementTimestamp;
+        this.phone = phone;
+        this.city = city;
     }
 
     //set
-    public Products(int userId, String phone, String city, String productName, double productPrice, String productCategory, String deliveryMethod, int advertisementLength) {
-        this.userId = userId;
-        this.phone = phone;
-        this.city = city;
+    public Products(String productName, double productPrice, String productCategory, String deliveryMethod, int advertisementLength, String phone, String city) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.productCategory = productCategory;
         this.deliveryMethod = deliveryMethod;
         this.advertisementLength = advertisementLength;
+        this.phone = phone;
+        this.city = city;
     }
 
     //needed as default constructor
@@ -60,30 +53,6 @@ public class Products {
 
     public int getProductId() {
         return productId;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public String getProductName() {
@@ -126,23 +95,33 @@ public class Products {
         this.advertisementLength = advertisementLength;
     }
 
-    public String getAdvertisementTimestamp() {
-        return advertisementTimestamp;
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     @Override
     public String toString() {
         return "Products{" +
                 "productId=" + productId +
-                ", userId=" + userId +
-                ", phone='" + phone + '\'' +
-                ", city='" + city + '\'' +
                 ", productName='" + productName + '\'' +
                 ", productPrice=" + productPrice +
                 ", productCategory='" + productCategory + '\'' +
                 ", deliveryMethod='" + deliveryMethod + '\'' +
                 ", advertisementLength=" + advertisementLength +
-                ", advertisementTimestamp='" + advertisementTimestamp + '\'' +
+                ", phone='" + phone + '\'' +
+                ", city='" + city + '\'' +
                 '}';
     }
 }

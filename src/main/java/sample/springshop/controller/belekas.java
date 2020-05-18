@@ -1,26 +1,19 @@
 package sample.springshop.controller;
 
-import org.springframework.web.servlet.ModelAndView;
-import sample.springshop.model.Users;
-
 public class belekas {
-/*
-    public ModelAndView getUser(@RequestParam String userName, String userPassword) {
-    ModelAndView modelAndView = new ModelAndView();
-    Users users = new Users();
-        if(usersDAO.findByUserName(userName).toString().contentEquals(userName)) {
-        users = usersDAO.findByUserName(userName);
-        modelAndView.setViewName("/products.jsp");
-    } else {
-        modelAndView.setViewName("login.jsp");
-    }
+    /*
+<div class="container-fluid">
+    <form action="/products/addproduct">
+        <input type="text" id="product_name" name="productName">
+        <input type="text" id="product_price" name="productPrice">
+        <input type="text" id="product_category" name="productCategory">
+        <input type="text" id="delivery_method" name="deliveryMethod">
+        <input type="text" id="advertisement_length" name="advertisementLength">
+        <input type="text" id="phone" name="phone">
+        <input type="text" id="city" name="city">
+        <input type="submit">
+    </form>
+</div>
 
-
-    public ModelAndView getUser(@RequestParam String userName, String userPassword) {
-        ModelAndView modelAndView = new ModelAndView("/products.jsp");
-        Users users = usersDAO.findByUserName(userName);
-        modelAndView.addObject(users);
-        return modelAndView;
-    }
- */
+     */
 }

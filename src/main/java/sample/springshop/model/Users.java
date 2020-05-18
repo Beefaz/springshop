@@ -1,14 +1,12 @@
 package sample.springshop.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="users")
 public class Users {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="user_id")
     private int userId;
 
@@ -75,10 +73,10 @@ public class Users {
 
     @Override
     public String toString() {
-        return "Users[" +
+        return "Users{" +
                 "userName='" + userName + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 ", userEmail='" + userEmail + '\'' +
-                ']';
+                '}';
     }
 }

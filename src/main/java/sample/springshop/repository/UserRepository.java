@@ -2,10 +2,10 @@ package sample.springshop.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import sample.springshop.model.Users;
 import org.springframework.transaction.annotation.Transactional;
-import sample.springshop.model.Products;
 
 @Repository
 @Transactional
-public interface ProductRepository extends CrudRepository<Products, Integer> {
+public interface UserRepository extends CrudRepository<Users, Integer> {
 }

@@ -7,19 +7,28 @@ import org.springframework.web.servlet.ModelAndView;
 import sample.springshop.model.Products;
 import sample.springshop.repository.ProductRepository;
 
-import java.util.List;
 
 @Controller
 public class ProductsController {
     @Autowired
     ProductRepository productRepository;
 
-    @GetMapping("/products")
+    @GetMapping("/store/products")
     public ModelAndView getAllProductsPage() {
         Iterable<Products> productsList = productRepository.findAll();
-        ModelAndView modelAndView = new ModelAndView("store/products.jsp");
+        ModelAndView modelAndView = new ModelAndView("products");
         modelAndView.addObject("ListOfProducts", productsList);
-        System.out.println(modelAndView.toString());
+        return modelAndView;
+    }
+
+    @GetMapping("/store/products/addproduct")
+    public ModelAndView addProduct(Products products) {
+        productRepository.save(products);
+        ModelAndView modelAndView = new ModelAndView("redirect:/store/products");
+        return modelAndView;
+    }
+    /*@GetMapping("/store/products")
+    public ModelAndView addProduct() {
         return modelAndView;
     }
 

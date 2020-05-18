@@ -16,35 +16,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Products</title>
+    <title>Users</title>
 </head>
 <body>
+
 <div class="jumbotron">
     <h2>Products</h2>
     <jsp:include page="components/navbar.jsp"></jsp:include>
 </div>
 
 <div class="container-fluid" style="display:none" id="hide_and_show">
-<jsp:include page="products/addproduct.jsp"></jsp:include>
+    <jsp:include page="users/adduser.jsp"></jsp:include>
 </div>
 <div class="container">
-    <button type="button" class="btn btn-info" onclick="hideAndShow()">Add new product</button>
+    <button type="button" class="btn btn-info" onclick="hideAndShow()">Add new user</button>
     <table class="table table-hover">
         <tr>
-            <th>Product name</th>
-            <th>Product price</th>
-            <th>Available delivery methods</th>
-            <th>City</th>
+            <th>User ID</th>
+            <th>User name</th>
+            <th>User Email</th>
         </tr>
-        <c:forEach items="${ListOfProducts}" var="products">
+        <c:forEach items="${ListOfUsers}" var="users">
             <tr>
-                <td>${products.productName}</td>
-                <td>${products.productPrice}</td>
-                <td>${products.productCategory}</td>
-                <td>${products.deliveryMethod}</td>
-                <td>${products.advertisementLength}</td>
-                <td>${products.phone}</td>
-                <td>${products.city}</td>
+                <td>${users.userId}</td>
+                <td>${users.userName}</td>
+                <td>${users.userEmail}</td>
             </tr>
         </c:forEach>
     </table>
@@ -69,4 +65,3 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 </body>
-</html>
