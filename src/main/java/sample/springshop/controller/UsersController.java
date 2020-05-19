@@ -12,6 +12,7 @@ public class UsersController {
     @Autowired
     UserRepository userRepository;
 
+
     @GetMapping("/store/users")
     public ModelAndView getAllUsersPage() {
         Iterable<Users> usersList = userRepository.findAll();
@@ -22,31 +23,20 @@ public class UsersController {
     @GetMapping("/store/users/adduser")
     public ModelAndView addUser(Users users) {
         userRepository.save(users);
-        ModelAndView modelAndView = new ModelAndView("redirect:/store/users");
-        return modelAndView;
+        return new ModelAndView("redirect:/store/products");
     }
 
-
-    /*
-    @GetMapping("/")
-    public ModelAndView getUserPage(){
-        Iterable<Users> listOfUsers= usersDAO.findAll();
-        for (Users users : listOfUsers){
-            System.out.println(users);
-        }
-        return new ModelAndView("index");
+    @GetMapping("/store/user")
+    public ModelAndView login() {
+        return new ModelAndView("redirect:/store/products");
     }
-    @GetMapping("/users")
-    public String loaddashboard() { return "users.jsp"; }
-
-    @GetMapping("/users/{userId}")
-    public String getAllUsersByUserId(@PathVariable int userId) {
-        return usersDAO.findById(userId).toString();
+/*
+    @GetMapping("/store/user")
+    public ModelAndView login(@RequestParam String userName, String userPassword) {
+        List<Users> usersList = getAllUsersPage();
+        usersList....
+        return new ModelAndView("redirect:/store/products");
     }
 
-    @GetMapping("/users/{userName}")
-    public String getAllUsersByUserName(@PathVariable String userName) {
-        return usersDAO.findAllByUserNameIsContaining(userName).toString();
-    }
-    */
+ */
 }

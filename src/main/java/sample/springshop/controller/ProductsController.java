@@ -24,35 +24,6 @@ public class ProductsController {
     @GetMapping("/store/products/addproduct")
     public ModelAndView addProduct(Products products) {
         productRepository.save(products);
-        ModelAndView modelAndView = new ModelAndView("redirect:/store/products");
-        return modelAndView;
+        return new ModelAndView("redirect:/store/products");
     }
-    /*@GetMapping("/store/products")
-    public ModelAndView addProduct() {
-        return modelAndView;
-    }
-
-
-    /*
-    @GetMapping("/")
-    public ModelAndView getProductPage(){
-        Iterable<Products> listOfProducts= productsDAO.findAll();
-        for (Products products : listOfProducts){
-            System.out.println(products);
-        }
-        return new ModelAndView("index");
-    }
-    @GetMapping("/products")
-    public String loaddashboard() { return "products.jsp"; }
-
-    @GetMapping("/products/{productId}")
-    public String getAllProductsByProductId(@PathVariable int productId) {
-        return productsDAO.findById(productId).toString();
-    }
-
-    @GetMapping("/products/{productName}")
-    public String getAllProductsByProductName(@PathVariable String productName) {
-        return productsDAO.findAllByProductNameIsContaining(productName).toString();
-    }
-    */
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2020 at 02:39 PM
+-- Generation Time: May 19, 2020 at 04:58 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.30
 
@@ -24,33 +24,49 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `hibernate_sequence`
+--
+
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `hibernate_sequence`
+--
+
+INSERT INTO `hibernate_sequence` (`next_val`) VALUES
+(15),
+(15);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
-  `product_id` int(10) NOT NULL,
-  `user_id` int(10) DEFAULT NULL,
-  `phone` varchar(15) NOT NULL,
-  `city` varchar(10) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `product_name` varchar(255) DEFAULT NULL,
-  `product_price` double(10,2) DEFAULT NULL,
+  `product_price` double DEFAULT NULL,
   `product_category` varchar(255) DEFAULT NULL,
   `delivery_method` varchar(255) DEFAULT NULL,
-  `advertisement_length` int(1) DEFAULT NULL,
-  `advertisement_timestamp` datetime NOT NULL DEFAULT current_timestamp()
+  `advertisement_length` int(11) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `user_id`, `phone`, `city`, `product_name`, `product_price`, `product_category`, `delivery_method`, `advertisement_length`, `advertisement_timestamp`) VALUES
-(2, 3, '', '', 'Skateboard', 200.00, 'Laisvalaikis', 'DPD', 7, '2020-04-29 23:15:42'),
-(5, 6, '+37060519154', 'Alytus', 'sdfjhgkh', 54646.00, '[Audio bei video aparatūra  ]', '[Paštomatu]', 4, '2020-05-13 08:12:48'),
-(8, 6, '+65468468486', 'Justinas', 'ahfduk', 12513.00, '[Mobilieji telefonai ir jų priedai]', '[Galimybė atsiimti sutartoje vietoje, Paštomatu]', 3, '2020-05-13 12:57:33'),
-(12, 11, '6496133135144', 'Kaunas', 'etfrestht', 200.00, '[Mobilieji telefonai ir jų priedai]', '[Paštomatu]', 4, '2020-05-13 19:11:20'),
-(14, 6, '3463446346', '346346346', '343434', 34.34, '[Sportas, laisvalaikis, turizmas]', '[Paštomatu]', 2, '2020-05-14 14:55:20'),
-(15, 14, '+370605191544', 'Alytus', 'Skateboard', 100.10, '[Sportas, laisvalaikis, turizmas]', '[Paštu]', 3, '2020-05-14 15:04:01');
+INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `product_category`, `delivery_method`, `advertisement_length`, `phone`, `city`) VALUES
+(1, 'name', 100, 'category', 'method', 7, 'phone', 'city'),
+(2, '567', 567, '567', '567', 567, '567', '567'),
+(3, '234', 234, '234', '234', 234, '234', '234'),
+(4, '456', 3456, '3456', '3456', 3456, '3456', '3456'),
+(5, '367', 567, '5467', '4567', 4567, '4567', '4576'),
+(13, '567', 567, '567', '567', 567, '567', '567');
 
 -- --------------------------------------------------------
 
@@ -60,26 +76,24 @@ INSERT INTO `products` (`product_id`, `user_id`, `phone`, `city`, `product_name`
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `user_name` varchar(255) NOT NULL,
-  `user_password` varchar(255) NOT NULL,
-  `user_email` varchar(255) NOT NULL
+  `user_email` varchar(255) DEFAULT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  `user_password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_name`, `user_password`, `user_email`) VALUES
-(1, 'Justinas', 'nesamone', 'justinas@gmail.com'),
-(9, 'Mantas', 'katleris', 'katleris@gmail.com'),
-(10, 'Mantas', 'katleris', 'katleris@gmail.com'),
-(11, 'Justinas', 'nesamone', 'justinas@gmail.com'),
-(12, 'Justinas', 'nesamone', 'justinas@gmail.com'),
-(13, 'Justinas', 'nesamone', 'justinas@gmail.com'),
-(14, 'justinas.geryba@gmail.com', 'katleris', 'justinas@gmail.com'),
-(15, 'Mantas', 'katleris', 'katleris@gmail.com'),
-(16, 'Justinas', 'nesamone', 'justinas@gmail.com'),
-(17, 'Justinas', 'nesamone', 'justinas@gmail.com');
+INSERT INTO `users` (`user_id`, `user_email`, `user_name`, `user_password`) VALUES
+(6, '345', '345', '345'),
+(7, '345', '345', '345'),
+(8, 'tyu', 'tyu', 'tyu'),
+(9, '2345', '2345', '2345'),
+(10, '345', '345', '345'),
+(11, '456', '456', '456'),
+(12, '24234', '22342', '23424'),
+(14, '890', '890', '890');
 
 --
 -- Indexes for dumped tables
@@ -96,22 +110,6 @@ ALTER TABLE `products`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `products`
---
-ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

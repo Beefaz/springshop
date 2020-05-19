@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sample.springshop.model.Products;
 import sample.springshop.repository.ProductRepository;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,5 +24,4 @@ public class ProductServiceImpl implements ProductService {
         }
         return ProductService.super.getAllProducts();
     }
-
 }
